@@ -15,6 +15,13 @@ RUN mkdir /esp/project
 RUN wget -O /esp/esp-32-toolchain.tar.gz https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-73-ge28a011-5.2.0.tar.gz \
     && tar -xzf /esp/esp-32-toolchain.tar.gz -C /esp \
     && rm /esp/esp-32-toolchain.tar.gz
+    
+
+# Install ESP-IDF
+RUN git clone --recursive https://github.com/espressif/esp-idf.git
+WORKDIR /esp/esp-idf
+RUN git checkout -b v3.0 origin/release/v3.0
+RUN git submodule update
 
 # Add the toolchain binaries to PATH
 ENV PATH /esp/xtensa-esp32-elf/bin:$PATH
