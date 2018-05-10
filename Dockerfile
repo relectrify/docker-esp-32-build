@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 # Install build dependencies (and vim + picocom for editing/debugging)
 RUN apt-get -qq update \
-    && apt-get install -y git gcc wget make libncurses-dev flex bison gperf python python-serial vim picocom \
+    && apt-get install -y git build-essential wget make libncurses-dev flex bison gperf python python-serial vim picocom \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
@@ -18,9 +18,6 @@ RUN wget -O /esp/esp-32-toolchain.tar.gz https://dl.espressif.com/dl/xtensa-esp3
 
 # Add the toolchain binaries to PATH
 ENV PATH /esp/xtensa-esp32-elf/bin:$PATH
-
-# Setup IDF_PATH
-ENV IDF_PATH /esp/esp-idf
 
 # This is the directory where our project will show up
 WORKDIR /esp/project
