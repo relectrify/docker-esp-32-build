@@ -14,7 +14,9 @@ RUN mkdir /esp/project
 RUN wget -O /esp/esp-32-toolchain.tar.gz https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-75-gbaf03c2-5.2.0.tar.gz \
     && tar -xzf /esp/esp-32-toolchain.tar.gz -C /esp \
     && rm /esp/esp-32-toolchain.tar.gz
-    
+
+RUN wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://drive.google.com/uc?export=download&id=1U1EszQX3LMihVyzx-VDpUA5DYCMCCImx' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1r8a3mWAlxk-CiCLLXpy2UPmuDcukIdt9" -O /simplicity/IDE.tar && rm -rf /tmp/cookies.txt
+RUN mv Relectrify ~/.ssh
 
 # Add the toolchain binaries to PATH
 ENV PATH /esp/xtensa-esp32-elf/bin:$PATH
