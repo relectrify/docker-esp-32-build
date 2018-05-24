@@ -16,6 +16,7 @@ RUN wget -O /esp/esp-32-toolchain.tar.gz https://dl.espressif.com/dl/xtensa-esp3
     && rm /esp/esp-32-toolchain.tar.gz
 
 RUN wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://drive.google.com/uc?export=download&id=1U1EszQX3LMihVyzx-VDpUA5DYCMCCImx' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1r8a3mWAlxk-CiCLLXpy2UPmuDcukIdt9" -O Relectrify && rm -rf /tmp/cookies.txt
+RUN chmod go-rw Relectrify
 RUN mkdir -p ~/.ssh
 RUN mv Relectrify ~/.ssh/
 
