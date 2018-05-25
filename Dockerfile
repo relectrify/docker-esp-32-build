@@ -16,9 +16,8 @@ RUN wget -O /esp/esp-32-toolchain.tar.gz https://dl.espressif.com/dl/xtensa-esp3
     && rm /esp/esp-32-toolchain.tar.gz
 
 RUN mkdir -p ~/.ssh
-COPY Relectrify ~/.ssh/
-
-
+COPY Relectrify /root/.ssh/
+RUN ls ~/.ssh
 
 # Add the toolchain binaries to PATH
 ENV PATH /esp/xtensa-esp32-elf/bin:$PATH
