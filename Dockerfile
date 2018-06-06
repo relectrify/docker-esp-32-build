@@ -19,8 +19,5 @@ RUN wget -O /esp/esp-32-toolchain.tar.gz https://dl.espressif.com/dl/xtensa-esp3
 # Add the toolchain binaries to PATH
 ENV PATH /esp/xtensa-esp32-elf/bin:$PATH
 
-# Setup IDF_PATH
-ENV IDF_PATH /esp/esp-idf
-
 # This is the directory where our project will show up
 WORKDIR /esp/project
