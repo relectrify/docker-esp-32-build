@@ -14,8 +14,11 @@ RUN mkdir /esp/project
 RUN wget -O /esp/esp-32-toolchain.tar.gz https://dl.espressif.com/dl/xtensa-esp32-elf-linux64-1.22.0-75-gbaf03c2-5.2.0.tar.gz \
     && tar -xzf /esp/esp-32-toolchain.tar.gz -C /esp \
     && rm /esp/esp-32-toolchain.tar.gz
+# Get the ESP32idf
+RUN wget -O /esp/esp-idf.zip https://github.com/espressif/esp-idf/archive/release/v3.1.zip \
+    && tar -xzf /esp/esp-idf.zip -C /esp \
+    && rm /esp/esp-idf.zip
     
-
 # Add the toolchain binaries to PATH
 ENV PATH /esp/xtensa-esp32-elf/bin:$PATH
 
