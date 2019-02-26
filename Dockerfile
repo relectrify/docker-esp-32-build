@@ -1,9 +1,10 @@
 FROM ubuntu:14.04
 
-# Install build dependencies (and vim + picocom for editing/debugging)
+# Install build dependencies (and vim for editing)
 RUN apt-get -qq update \
-    && apt-get install -y git build-essential wget make libncurses-dev flex bison gperf python python-serial vim picocom \
+    && apt-get install -y git build-essential wget make libncurses-dev flex bison gperf python python-serial python-dev libssl-dev libffi-dev vim \
     && apt-get clean \
+	&& pip install cryptography \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Create some directories
