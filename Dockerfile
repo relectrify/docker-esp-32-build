@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:14.04
 
 # Install build dependencies (and vim for editing)
 RUN apt-get -qq update \
