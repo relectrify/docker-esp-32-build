@@ -5,7 +5,8 @@ RUN apt-get -qq update \
     && apt-get install -y git build-essential wget make libncurses-dev flex bison gperf python python-serial python-dev python-pip libssl-dev libffi-dev vim \
     && apt-get clean \
 	&& pip install --upgrade setuptools\
-	&& pip install cryptography \
+	&& pip install --upgrade future \
+	&& pip install --upgrade cryptography \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Create some directories
