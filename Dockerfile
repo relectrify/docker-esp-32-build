@@ -7,6 +7,7 @@ RUN apt-get -qq update \
 	&& pip install --upgrade setuptools\
 	&& pip install --upgrade future \
 	&& pip install --upgrade cryptography \
+	&& pip install --upgrade pyparsing \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Create some directories
