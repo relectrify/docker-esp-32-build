@@ -27,6 +27,7 @@ RUN cd esp-idf && git checkout 99fb9a3f7c28c5fa12b1bd4aa6fb7b622d841326 && git s
 ENV IDF_PATH=/esp/esp-idf
 ENV IDF_TOOLS_PATH=/opt/esp
 RUN /esp/esp-idf/install.sh
+RUN python -m pip install --user -r /esp/esp-idf/requirements.txt
 
 # Add the toolchain binaries to PATH
 RUN ls /opt/esp/
