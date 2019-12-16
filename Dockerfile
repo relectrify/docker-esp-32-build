@@ -29,8 +29,7 @@ RUN /esp/esp-idf/install.sh
 RUN python -m pip install --user -r /esp/esp-idf/requirements.txt
 
 # Add the toolchain binaries to PATH
-RUN ls /opt/esp/
-ENV PATH /opt/esp/bin:$PATH
+ENV PATH /opt/esp/tools/xtensa-esp32-elf/esp-2019r2-8.2.0/xtensa-esp32-elf/bin/:opt/esp/python_env/idf4.0_py3.5_env/bin/:$PATH
 
 # This is the directory where our project will show up
 WORKDIR /esp/project
