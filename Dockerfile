@@ -5,7 +5,7 @@ RUN apt-get -qq update \
     && apt-get install -y \
     git build-essential apt-utils libncurses-dev bison ca-certificates ccache \
     check cmake curl flex gperf lcov libncurses-dev libusb-1.0-0-dev make \
-    ninja-build python3 python3-pip unzip wget xz-utils zip vim
+    ninja-build python3 python3-pip unzip wget xz-utils zip language-pack-en vim
 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 RUN python -m pip install --upgrade pip virtualenv
@@ -24,10 +24,8 @@ RUN git clone https://github.com/espressif/esp-idf.git
 RUN cd esp-idf && git checkout 99fb9a3f7c28c5fa12b1bd4aa6fb7b622d841326 && git submodule update --init --recursive
 
 # Setup IDF_PATH	
-ENV IDF_PATH=/esp/esp-idf
 ENV IDF_TOOLS_PATH=/opt/esp
 RUN /esp/esp-idf/install.sh
-RUN /bin/bash -c "source /esp/esp-idf/export.sh"
 RUN python -m pip install --user -r /esp/esp-idf/requirements.txt
 
 # Add the toolchain binaries to PATH
